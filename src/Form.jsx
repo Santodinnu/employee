@@ -4,9 +4,9 @@ import { randomHeadshotPath, randomColor } from './utility/function.js';
 //Controlled form / Input / Component
 
 let resetForm={
-    name:'',
-    title:'',
-    phone:'',
+    avatar:'',
+    first_name:'',
+    last_name:'',
     email:''}
 
 export default function Form({addEmployee}){
@@ -41,11 +41,10 @@ export default function Form({addEmployee}){
         const randomBorderColor = randomColor();
 
         let employee = {
-            first_name:form.name,
-            title:form.title,
-            phone:form.phone,
-            email:form.email,
             avatar: randomHeadshot,
+            first_name:form.first_name,
+            last_name:form.last_name,
+            email:form.email,            
             borderColor: randomBorderColor,
             id: crypto.randomUUID()
         }
@@ -59,14 +58,11 @@ export default function Form({addEmployee}){
 
     return(
         <form  className='form' onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input id="name" value={form.name} onChange={handleChange}/>
+            <label htmlFor="firstname">FirstName:</label>
+            <input id="first_name" value={form.first_name} onChange={handleChange} />
 
-            <label htmlFor="title">Title:</label>
-            <input id="title" value={form.title} onChange={handleChange}/>
-
-            <label htmlFor="phone">Phone:</label>
-            <input id="phone" value={form.phone} onChange={handleChange} />
+           <label htmlFor="lastname">LastName:</label>
+           <input id="last_name" value={form.last_name} onChange={handleChange} />
 
             <label htmlFor="email">Email:</label>
             <input id="email" value={form.email} onChange={handleChange} />
